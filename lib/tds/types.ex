@@ -937,8 +937,8 @@ defmodule Tds.Types do
       end
     "decimal(#{precision}, #{scale})"
   end
-  def encode_decimal_descriptor(%Parameter{type: :decimal} = param) do
-    encode_decimal_descriptor(%{param | value: Decimal.new()})
+  def encode_decimal_descriptor(%Parameter{type: :decimal, value: value} = param) do
+    encode_decimal_descriptor(%{param | value: Decimal.new(value)})
   end
 
   @doc """
