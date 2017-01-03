@@ -10,7 +10,7 @@ defmodule Tds.Connection do
 
   ### PUBLIC API ###
 
-  def start_link(opts) when is_atom(name) do
+  def start_link(opts) do
     opts = opts
       |> Keyword.put_new(:username, System.get_env("MSSQLUSER") || System.get_env("USER"))
       |> Keyword.put_new(:password, System.get_env("MSSQLPASSWORD"))
