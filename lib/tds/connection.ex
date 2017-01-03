@@ -10,14 +10,14 @@ defmodule Tds.Connection do
 
   ### PUBLIC API ###
 
-  def start_link(name, opts) when is_atom(name) do
+  def start_link(opts) when is_atom(name) do
     opts = opts
       |> Keyword.put_new(:username, System.get_env("MSSQLUSER") || System.get_env("USER"))
       |> Keyword.put_new(:password, System.get_env("MSSQLPASSWORD"))
       |> Keyword.put_new(:instance, System.get_env("MSSQLINSTANCE"))
       |> Keyword.put_new(:hostname, System.get_env("MSSQLHOST") || "localhost")
       |> Enum.reject(fn {_k,v} -> is_nil(v) end)
-    case GenServer.start_link(__MODULE__, [], name: name) do
+    case GenServer.start_link(__MODULE__, []) do
       {:ok, pid} ->
         timeout = opts[:timeout] || @timeout
         case opts[:instance] do
