@@ -507,7 +507,7 @@ defmodule Tds.Types do
   """
   def encode_data_type(%Parameter{type: type} = param) when type != nil do
     case type do
-      :boolean -> encode_bit_type(param)
+      :boolean -> encode_binary_type(param)
       :binary -> encode_binary_type(param)
       :string -> encode_string_type(param)
       :integer -> encode_integer_type(param)
