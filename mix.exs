@@ -3,7 +3,7 @@ defmodule Tds.Mixfile do
 
   def project do
     [app: :tds,
-     version: "0.5.4",
+     version: "0.6.0",
      elixir: "~> 1.0",
      deps: deps(),
      source_url: "https://github.com/livehelpnow/tds",
@@ -12,31 +12,19 @@ defmodule Tds.Mixfile do
      ]
   end
 
-  # Configuration for the OTP application
-  #
-  # Type `mix help compile.app` for more information
   def application do
     [applications: [:logger]]
   end
 
-  # Dependencies can be Hex packages:
-  #
-  #   {:mydep, "~> 0.3.0"}
-  #
-  # Or git/path repositories:
-  #
-  #   {:mydep, git: "https://github.com/elixir-lang/mydep.git", tag: "0.1.0"}
-  #
-  # Type `mix help deps` for more examples and options
   defp deps do
     [
-      {:decimal, "~> 1.3"},
+      {:decimal, "~> 1.4"},
     ]
   end
 
   defp description do
     """
-    MSSQL / TDS Driver for Ecto.
+    MSSQL / TDS Driver
     """
   end
 
