@@ -6,7 +6,7 @@ defmodule Tds.Connection do
   import Tds.BinaryUtils
   import Tds.Utils
 
-  @timeout 5000
+  @timeout 1_800_000 # 60000 * 30 
 
   ### PUBLIC API ###
 
